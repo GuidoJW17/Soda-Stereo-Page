@@ -1,0 +1,25 @@
+body {
+    background-color: black;
+    
+}
+
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(70px); /* Viene un poco de abajo */
+    }
+    to {
+        opacity: 3;
+        transform: translateY(0);
+    }
+}
+
+.titulo-portada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 120px;
+    animation: aparecer 1s ease-out;
+}
+
