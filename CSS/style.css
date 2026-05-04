@@ -1,16 +1,17 @@
 body {
     background-color: black;
-    
+    margin: 0;
+    padding: 0;
 }
 
-
+/* Animación de entrada */
 @keyframes aparecer {
     from {
         opacity: 0;
-        transform: translateY(70px); /* Viene un poco de abajo */
+        transform: translateY(70px);
     }
     to {
-        opacity: 3;
+        opacity: 1; /* El máximo es 1, no 3 */
         transform: translateY(0);
     }
 }
@@ -19,7 +20,56 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 120px;
-    animation: aparecer 1s ease-out;
+    margin: 120px 0; /* Ajustado para no empujar tanto el video */
+    animation: aparecer 1s ease-out forwards;
 }
 
+/* Contenedor Maestro para la máxima resolución */
+.contenedor-video-pro {
+    background-color: black !important;
+    line-height: 0;
+    width: 100%;
+    max-width: 1600px; /* Aumentamos el límite para pantallas grandes */
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(255, 0, 0, 0.15); /* Sombra roja sutil */
+}
+
+/* Optimización del Video */
+#videoSoda {
+    width: 100%; /* Volvemos al 100% para que sea nítido y no se estire artificialmente */
+    height: auto;
+    display: block;
+    image-rendering: -webkit-optimize-contrast; /* Mejora el contraste en navegadores modernos */
+    image-rendering: crisp-edges;
+    object-fit: contain; /* Mantiene la proporción original sin recortar al cantante */
+}
+
+/* Estilo de los botones circulares (Soda Stereo Ecos Style) */
+.btn-circular {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #000;
+    border: 2px solid #1a1a1a;
+    color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.btn-circular:hover {
+    border-color: #ff0000;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    color: #ff3333;
+}
+
+/* Ajuste para que el video no se suba encima del título */
+video {
+    margin-top: 0; 
+}
